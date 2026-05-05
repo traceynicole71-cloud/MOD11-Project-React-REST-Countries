@@ -5,27 +5,20 @@ import { Link } from 'react-router-dom';
 interface BorderTagProps {
     code: string;
 }
+
 //Takes ISO country code and fetches common name to display in link
 const BorderTag: React.FC<BorderTagProps> = ({ code }) => {
     const [fullName, setFullName] = useState<string>(code);
-//Limit fields to name to keep network requests light
-    useEffect(() => {
-const controller = new AbortController();
 
+    //Limit fields to name to keep network requests light
+    useEffect(() => {
         const fetchBorderName = async () => {
     try {
         const response = await fetch(
           `https://restcountries.com/v3.1/alpha/${code}?fields=name`  
         );
 
-<<<<<<< HEAD
         if (!response.ok) {
-=======
-        if (response.ok) {
-            const data = await response.json();
-            setFullName(data.name.common);
-        } else {
->>>>>>> f01e01c (BorderTag edit)
             throw new Error(`Failed to fetch border name: ${response.status}`);
         }
 
