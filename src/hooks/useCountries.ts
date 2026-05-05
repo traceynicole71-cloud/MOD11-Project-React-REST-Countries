@@ -5,7 +5,7 @@ export interface Country {
     name: {
         common: string;
         official: string;
-        natiaveName?: Record<string, { common: string }>;
+        nativeName?: Record<string, { common: string }>;
     };
 //3-letter country code for routing and unique keys
     cca3: string;
