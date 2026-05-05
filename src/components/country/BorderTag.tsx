@@ -8,7 +8,7 @@ interface BorderTagProps {
 //Takes ISO country code and fetches common name to display in link
 const BorderTag: React.FC<BorderTagProps> = ({ code }) => {
     const [fullName, setFullName] = useState<string>(code);
-//Limit fileds to name to keep network requests light
+//Limit fields to name to keep network requests light
     useEffect(() => {
 const fetchBorderName = async () => {
     try {
