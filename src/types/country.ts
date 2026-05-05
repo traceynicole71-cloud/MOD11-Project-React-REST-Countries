@@ -47,4 +47,4 @@ export interface Country {
     borders?: string[];
 }
 //Helper TYPE for home page grid
-export type CountrySummary = Pick<CountrySummary, 'name' | 'population' | 'region' | 'capital' | 'flag' | 'cca3'>;
+export type CountrySummary = Pick<Country, 'name' | 'population' | 'region' | 'capital' | 'flags' | 'cca3'>;
