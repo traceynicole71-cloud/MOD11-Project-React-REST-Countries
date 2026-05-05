@@ -16,10 +16,18 @@ const fetchBorderName = async () => {
           `https://restcountries.com/v3.1/alpha/${code}?fields=name`  
         );
 
-        if (response.ok) {
-            const data = await response.json();
-            setFullName(data.name.common);
+        if (!response.ok) {
+            throw new Error(`Failed to fetch border name: ${response.status}`);
         }
+
+        const data = await response.json();
+        const country = data[0];
+
+        if (!country?.name?.common) {
+            throw new Error(`No border name found for code: ${code}`);
+        }
+
+        setFullName(country.name.common);
     } catch (error) {
 console.error(`Could not fetch name for border: ${code}`, error);
     }
