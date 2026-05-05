@@ -18,7 +18,9 @@ function App() {
           </div>
 
           <div>
-            <h1 className="bg-red-500">Get started</h1>
+           <h1 className="text-4xl font-bold bg-red-500 px-6 py-3 rounded-2xl shadow-md">
+           Get started
+            </h1>
             <p>
               Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
             </p>
