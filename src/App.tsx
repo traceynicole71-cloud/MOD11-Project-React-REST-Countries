@@ -9,8 +9,10 @@ function App() {
 
   return (
    <div className="min-h-screen p-6 max-w-5xl mx-auto flex items-center justify-center">
-      <section id="center">
-        <div className="flex flex-col items-center text-center gap-6">
+     <section
+        id="center"
+          className="bg-white rounded-3xl shadow-xl p-10 w-full"
+>        <div className="flex flex-col items-center text-center gap-6">
           <div className="hero flex items-center justify-center gap-4 flex-wrap">
             <img src={heroImg} className="base" width="170" height="179" alt="" />
             <img src={reactLogo} className="framework" alt="React logo" />
