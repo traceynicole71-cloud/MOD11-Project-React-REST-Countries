@@ -8,16 +8,16 @@ function App() {
   const [count] = useState(0)
 
   return (
-    <div className="p-6 max-w-5xl mx-auto">
+   <div className="min-h-screen p-6 max-w-5xl mx-auto flex items-center justify-center">
       <section id="center">
         <div className="flex flex-col items-center text-center gap-6">
-          <div className="hero">
+          <div className="hero flex items-center justify-center gap-4 flex-wrap">
             <img src={heroImg} className="base" width="170" height="179" alt="" />
             <img src={reactLogo} className="framework" alt="React logo" />
             <img src={viteLogo} className="vite" alt="Vite logo" />
           </div>
 
-          <div>
+         <div className="space-y-3">
            <h1 className="text-4xl font-bold bg-red-500 px-6 py-3 rounded-2xl shadow-md">
            Get started
             </h1>
