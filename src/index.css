@@ -5,3 +5,11 @@
 body {
   @apply bg-white text-black transition-colors duration-300;
 }
+
+html {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+}
