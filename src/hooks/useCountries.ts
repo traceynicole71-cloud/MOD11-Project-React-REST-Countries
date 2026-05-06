@@ -7,7 +7,7 @@ export interface Country {
         official: string;
         nativeName?: Record<string, { common: string }>;
     };
-//3-letter country code for routing and unique keys
+    //3-letter country code for routing and unique keys
     cca3: string;
     flags: {
         png: string;
@@ -18,7 +18,7 @@ export interface Country {
     population: number;
     region: string;
     subregion?: string;
-    capital?: string [];
+    capital?: string[];
     currencies?: Record<string, { name: string; symbol: string }>;
     languages?: Record<string, string>;
     borders?: string[];
@@ -31,16 +31,18 @@ export const useCountries = () => {
     const [error, setError] = useState<string | null>(null);
     const [searchQuery, setSearchQuery] = useState<string>('');
     const [selectedRegion, setSelectedRegion] = useState<string>('');
-//Fetch all countries from the API
-//useCallback to make sure function reference doesn't change with every render
+    //Fetch all countries from the API
+    //useCallback to make sure function reference doesn't change with every render
     const fetchAllCountries = useCallback(async () => {
         setLoading(true);
         setError(null);
         try {
-            const response = await fetch('https://restcountries.com/v3.1/all');
-            if (!response.ok) throw new Error(`API error ${response.status}`);
+            const response = await fetch('https://restcountries.com/v3.1/all?fields=name,cca3,flags,population,region,subregion,capital,currencies,languages,borders');
+            // if (!response.ok) throw new Error(`API error ${response.status}`);
             const data = await response.json();
-            if (!Array.isArray(data)) throw new Error('Unexpected API response');
+
+            console.log(data);
+            // if (!Array.isArray(data)) throw new Error('Unexpected API response');
             setCountries(data);
         } catch (err) {
             setError('Failed to fetch countries');

@@ -70,7 +70,7 @@ function Home() {
                     </div>
 
                     <p className="mt-6 text-sm text-gray-400 dark:text-gray-500 text-center">
-                        Showing {filteredCountries.length} countr{filteredCountries.length === 1 ? 'y' : 'ies'}
+                        Showing {filteredCountries.length} country {filteredCountries.length === 1 ? 'y' : 'ies'}
                     </p>
                 </>
             )}
