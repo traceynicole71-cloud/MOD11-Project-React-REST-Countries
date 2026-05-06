@@ -1,6 +1,6 @@
 // Temporary placeholder — Home page coming soon
 // TODO: render country grid with SearchBar and FilterDropdown
-
+import CountryCard from "../components/country/CountryCard";
 const countries = [1, 2, 3, 4, 5, 6, 7, 8];
 
 const Home = () => (
