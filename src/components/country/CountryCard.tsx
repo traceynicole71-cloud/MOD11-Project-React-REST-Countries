@@ -8,12 +8,12 @@ type CountryCardProps = {
 const CountryCard = ({
   name,
   population,
-  region,
+ region,
   capital,
 }: CountryCardProps) => {
   return (
     <div className="bg-white dark:bg-slate-800 rounded-xl shadow-md overflow-hidden hover:scale-105 transition-transform duration-300">
-      <div className="h-40 bg-slate-300 dark:bg-slate-700"></div>
+      <div className="h-40 w-full bg-gradient-to-br from-slate-300 to-slate-500 dark:from-slate-700 dark:to-slate-900"></div>
 
       <div className="p-5">
         <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4">
