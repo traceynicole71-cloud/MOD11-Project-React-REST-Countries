@@ -20,7 +20,7 @@ function App() {
           </div>
 
          <div className="space-y-5 max-w-md">
-           <h1 className="text-4xl font-bold bg-red-500 px-6 py-3 rounded-2xl shadow-md">
+           <h1 className="text-4xl font-bold bg-red-500 px-6 py-3 rounded-2xl shadow-md hover:scale-105 transition-transform duration-300 cursor-pointer">
            Get started
             </h1>
             <p className="text-gray-600 leading-relaxed"></p>
