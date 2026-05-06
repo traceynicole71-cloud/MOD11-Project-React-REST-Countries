@@ -27,8 +27,8 @@ function App() {
               Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
               
             <p>Count is {count}</p>
-            <p>Documentation</p>
-            <p>Your questions, answered</p>
+           <p className="text-gray-500 font-medium">Documentation</p>
+            <p className="text-gray-500">Your questions, answered</p>
           </div>
 
           <div id="social" className="pt-6 border-t border-gray-200">
