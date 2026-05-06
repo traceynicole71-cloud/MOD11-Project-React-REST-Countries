@@ -26,7 +26,9 @@ function App() {
             <p className="text-gray-600 leading-relaxed"></p>
               Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
               
-            <p>Count is {count}</p>
+            <p className="text-sm font-medium text-gray-500">
+  Count is {count}
+</p>
            <p className="text-gray-500 font-medium">Documentation</p>
             <p className="text-gray-500">Your questions, answered</p>
           </div>
