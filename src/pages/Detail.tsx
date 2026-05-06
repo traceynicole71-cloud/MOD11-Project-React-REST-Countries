@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import type { Country } from '../hooks/useCountries';
-import BorderTag from '../components/BorderTag';
+import BorderTag from '../components/country/BorderTag';
 
 //Pull country code from URL parameters
 const Detail: React.FC = () => {
@@ -41,7 +41,7 @@ useEffect(() => {
 
 if (loading) return <div className="loader">Loading Country Details...</div>;
 if (error) return <div className="error">{error}</div>
-if (!country) return <div>No Country Data D=Found.</div>;
+if (!country) return <div>No Country Data Found.</div>;
 
 //Helper format currency objects into string with comma
 const currencies = country.currencies? Object.values(country.currencies).map(c => c.name).join(', ')
@@ -87,7 +87,7 @@ return (
             </div>
 
             <div className="space-y-3">
-              <p><span className="font-semibold">Top Level Domain:</span> {country.cca3}</p>
+              <p><span className="font-semibold">Top Level Domain:</span> {country.tld?.join(', ') ?? 'N/A'}</p>
               <p><span className="font-semibold">Currencies:</span> {currencies}</p>
               <p><span className="font-semibold">Languages:</span> {languages}</p>
             </div>
