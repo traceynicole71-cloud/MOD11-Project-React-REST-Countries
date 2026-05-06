@@ -8,7 +8,7 @@ function App() {
   const [count] = useState(0)
 
   return (
-  <div className="min-h-screen bg-gray-100 p-6 max-w-5xl mx-auto flex items-center justify-center">
+  <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 p-6 max-w-5xl mx-auto flex items-center justify-center">
      <section
         id="center"
           className="bg-white rounded-3xl shadow-xl p-10 w-full"
