@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import type { Country } from '../hooks/useCountries';
+import BorderTag from '../components/BorderTag';
 
 //Pull country code from URL parameters
 const Detail: React.FC = () => {
@@ -52,56 +53,63 @@ const languages = country.languages
 : 'N/A';
 //Navigation section
 return (
-    <main className="detail-container">
-        <button className="back-btn" onClick={() => navigate(-1)}>
-            &larr; back
+    <main className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white px-6 py-10 md:px-20">
+        <button 
+        className="flex items-center gap-2 px-8 py-2 mb-16 bg-white dark:bg-gray-800 shadow-md rounded-md hover:opacity-70 transition-all" 
+        onClick={() => navigate(-1)}>
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path fillRule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clipRule="evenodd" />
+        </svg>
+        Back
         </button>
 
-<section className="detail-content">
-    <img
-    src={country.flags.svg}
-    alt={country.flags.alt || `Flag of ${country.name.common}`}
-    className="detail-flag"
-    />
-
-    <div className="detail-info">
-        <h1>{country.name.common}</h1>
-
-        <div className="info-grid">
-            <div className="info-column">
-                <p><strong>Native Name:</strong> {Object.values(country.name.nativeName || {})[0]?.common || country.name.common}</p>
-                <p><strong>Population:</strong> {country.population.toLocaleString()}</p>
-                <p><strong>Region:</strong> {country.region}</p>
-                <p><strong>Sub Region:</strong> {country.subregion || 'N/A'}</p>
-                <p><strong>Capital:</strong> {country.capital?.[0] || 'N/A'}</p>
-            </div>
-
-            <div className="info-column">
-                <p><strong>Top Level Domain:</strong> {country.cca3}</p>
-                <p><strong>Currencies:</strong> {currencies}</p>
-                <p><strong>Languages:</strong> {languages}</p>
-            </div>
+<section className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+        {/* Flag Image */}
+        <div className="w-full">
+          <img 
+            src={country.flags.svg} 
+            alt={country.flags.alt || `Flag of ${country.name.common}`} 
+            className="w-full h-auto shadow-lg rounded-sm object-cover"
+          />
         </div>
 
-    {/*Border Countries Section*/}
-    <div className="border-countries">
-        <h3>Border Countries:</h3>
-        <div className="border-list">
-            {country.borders && country.borders.length > 0 ? (
-                country.borders.map((border) => (
-                    <Link key={border} to={`/country/${border}`} className="border-tag">
-                        {border}
-                    </Link>
+   {/* Text Content */}
+        <div className="flex flex-col justify-center">
+          <h1 className="text-3xl font-extrabold mb-8">{country.name.common}</h1>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12 text-sm">
+            <div className="space-y-3">
+              <p><span className="font-semibold">Native Name:</span> {Object.values(country.name.nativeName || {})[0]?.common || country.name.common}</p>
+              <p><span className="font-semibold">Population:</span> {country.population.toLocaleString()}</p>
+              <p><span className="font-semibold">Region:</span> {country.region}</p>
+              <p><span className="font-semibold">Sub Region:</span> {country.subregion || 'N/A'}</p>
+              <p><span className="font-semibold">Capital:</span> {country.capital?.[0] || 'N/A'}</p>
+            </div>
+
+            <div className="space-y-3">
+              <p><span className="font-semibold">Top Level Domain:</span> {country.cca3}</p>
+              <p><span className="font-semibold">Currencies:</span> {currencies}</p>
+              <p><span className="font-semibold">Languages:</span> {languages}</p>
+            </div>
+          </div>
+
+          {/* Border Countries */}
+          <div className="flex flex-col lg:flex-row lg:items-center gap-4">
+            <h3 className="font-semibold whitespace-nowrap">Border Countries:</h3>
+            <div className="flex flex-wrap gap-2">
+              {country.borders && country.borders.length > 0 ? (
+                country.borders.map((borderCode) => (
+                  <BorderTag key={borderCode} code={borderCode} />
                 ))
-            ) : (
-                <span>None</span>
-            )}
+              ) : (
+                <span className="text-gray-500">None</span>
+              )}
+            </div>
+          </div>
         </div>
-    </div>
-    </div>
-</section>
+      </section>
     </main>
-)
-}
+  );
+};
 
-export default Detail
+export default Detail;
