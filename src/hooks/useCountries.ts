@@ -51,6 +51,13 @@ export const useCountries = () => {
         fetchAllCountries();
     }, [fetchAllCountries]);
 
-    return { countries, loading, error, searchQuery, setSearchQuery, selectedRegion, setSelectedRegion };
+    //Filter countries by search query and selected region
+    const filteredCountries = countries.filter((country) => {
+        const matchesSearch = country.name.common.toLowerCase().includes(searchQuery.toLowerCase());
+        const matchesRegion = selectedRegion === '' || country.region === selectedRegion;
+        return matchesSearch && matchesRegion;
+    });
+
+    return { countries, filteredCountries, loading, error, searchQuery, setSearchQuery, selectedRegion, setSelectedRegion };
 }
 
