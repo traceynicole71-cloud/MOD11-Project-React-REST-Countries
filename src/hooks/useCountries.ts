@@ -30,6 +30,7 @@ export const useCountries = () => {
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
     const [searchQuery, setSearchQuery] = useState<string>('');
+    const [selectedRegion, setSelectedRegion] = useState<string>('');
 //Fetch all countries from the API
 //useCallback to make sure function reference doesn't change with every render
     const fetchAllCountries = useCallback(async () => {
@@ -50,6 +51,6 @@ export const useCountries = () => {
         fetchAllCountries();
     }, [fetchAllCountries]);
 
-    return { countries, loading, error, searchQuery, setSearchQuery };
+    return { countries, loading, error, searchQuery, setSearchQuery, selectedRegion, setSelectedRegion };
 }
 
