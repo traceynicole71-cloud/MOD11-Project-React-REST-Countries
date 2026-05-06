@@ -32,8 +32,12 @@ function App() {
           </div>
 
           <div id="social" className="pt-6 border-t border-gray-200">
-            <h2>Connect with us</h2>
-            <p>Join the Vite community</p>
+            <h2 className="text-lg font-semibold text-gray-700">
+  Connect with us
+</h2>
+            <p className="text-gray-500">
+  Join the Vite community
+</p>
           </div>
         </div>
       </section>
