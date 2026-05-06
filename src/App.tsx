@@ -19,13 +19,13 @@ function App() {
             <img src={viteLogo} className="vite" alt="Vite logo" />
           </div>
 
-         <div className="space-y-3">
+         <div className="space-y-5 max-w-md">
            <h1 className="text-4xl font-bold bg-red-500 px-6 py-3 rounded-2xl shadow-md">
            Get started
             </h1>
-            <p>
+            <p className="text-gray-600 leading-relaxed"></p>
               Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-            </p>
+              
             <p>Count is {count}</p>
             <p>Documentation</p>
             <p>Your questions, answered</p>
