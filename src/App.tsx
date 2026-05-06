@@ -31,7 +31,7 @@ function App() {
             <p>Your questions, answered</p>
           </div>
 
-          <div id="social">
+          <div id="social" className="pt-6 border-t border-gray-200">
             <h2>Connect with us</h2>
             <p>Join the Vite community</p>
           </div>
