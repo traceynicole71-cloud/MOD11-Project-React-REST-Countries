@@ -38,7 +38,9 @@ export const useCountries = () => {
         setError(null);
         try {
             const response = await fetch('https://restcountries.com/v3.1/all');
+            if (!response.ok) throw new Error(`API error ${response.status}`);
             const data = await response.json();
+            if (!Array.isArray(data)) throw new Error('Unexpected API response');
             setCountries(data);
         } catch (err) {
             setError('Failed to fetch countries');
