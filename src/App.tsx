@@ -8,13 +8,13 @@ function App() {
   const [count] = useState(0)
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-100 to-gray-300 p-8 max-w-6xl mx-auto flex items-center justify-center">
+   <div className="min-h-screen bg-gradient-to-br from-slate-100 to-gray-300 px-4 py-10 sm:p-8 max-w-6xl mx-auto flex items-center justify-center">
       <section
         id="center"
-        className="bg-white rounded-3xl shadow-2xl p-12 w-full max-w-3xl space-y-10"
+       className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl border border-gray-100 p-6 sm:p-12 w-full max-w-3xl space-y-10 transition-all duration-300"
       >
-        <div className="flex flex-col items-center text-center gap-8">
-          <div className="hero flex items-center justify-center gap-8 flex-wrap mb-6">
+       <div className="flex flex-col items-center text-center gap-10">
+         <div className="hero flex items-center justify-center gap-8 flex-wrap mb-8">
             <img src={heroImg} className="base" width="170" height="179" alt="" />
             <img src={reactLogo} className="framework" alt="React logo" />
             <img src={viteLogo} className="vite" alt="Vite logo" />
@@ -46,7 +46,7 @@ function App() {
             id="social"
             className="pt-8 border-t border-gray-200 space-y-2"
           >
-            <h2 className="text-xl font-semibold text-gray-700">
+           <h2 className="text-2xl font-bold text-gray-700 tracking-wide">
               Connect with us
             </h2>
 
