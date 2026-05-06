@@ -103,3 +103,5 @@ return (
     </main>
 )
 }
+
+export default Detail
