@@ -29,13 +29,12 @@ export const useCountries = () => {
     const [countries, setCountries] = useState<Country[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
-    const [searchQuery, setSearchQuery] = useState<string>('');
-    const [selectedRegion, setSelectedRegion] = useState<string>('');
 //Fetch all countries from the API
 //useCallback to make sure function reference doesn't change with every render
     const fetchAllCountries = useCallback(async () => {
         setLoading(true);
         setError(null);
+//
         try {
             const response = await fetch('https://restcountries.com/v3.1/all');
             const data = await response.json();
@@ -46,11 +45,5 @@ export const useCountries = () => {
             setLoading(false);
         }
     }, []);
-
-    useEffect(() => {
-        fetchAllCountries();
-    }, [fetchAllCountries]);
-
-    return { countries, loading, error, searchQuery, setSearchQuery, selectedRegion, setSelectedRegion };
 }
 
