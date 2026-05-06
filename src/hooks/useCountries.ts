@@ -19,6 +19,7 @@ export interface Country {
     region: string;
     subregion?: string;
     capital?: string [];
+    tld?: string[];
     currencies?: Record<string, { name: string; symbol: string }>;
     languages?: Record<string, string>;
     borders?: string[];
@@ -53,4 +54,3 @@ export const useCountries = () => {
 
     return { countries, loading, error, searchQuery, setSearchQuery, selectedRegion, setSelectedRegion };
 }
-
