@@ -9,10 +9,11 @@ function App() {
 
   return (
    <div className="min-h-screen bg-gradient-to-br from-slate-100 to-gray-300 px-4 py-10 sm:p-8 max-w-6xl mx-auto flex items-center justify-center">
-      <section
-        id="center"
-       className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl border border-gray-100 p-6 sm:p-12 w-full max-w-3xl space-y-10 transition-all duration-300"
-      >
+<section
+  id="center"
+  className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl hover:shadow-[0_20px_60px_rgba(0,0,0,0.15)] border border-gray-100 p-6 sm:p-12 w-full max-w-3xl space-y-10 transition-all duration-300"
+>
+  <div className="flex flex-col items-center text-center gap-10"></div>
        <div className="flex flex-col items-center text-center gap-10">
          <div className="hero flex items-center justify-center gap-8 flex-wrap mb-8">
             <img src={heroImg} className="base" width="170" height="179" alt="" />
