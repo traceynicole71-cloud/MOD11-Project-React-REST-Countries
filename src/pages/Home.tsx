@@ -1,12 +1,13 @@
 // Temporary placeholder — Home page coming soon
 // TODO: render country grid with SearchBar and FilterDropdown
 const Home = () => (
-  <div className="min-h-screen bg-slate-100 dark:bg-slate-900 p-8 transition-colors duration-300">
+ <div className="min-h-screen bg-slate-100 dark:bg-slate-900 p-8 transition-colors duration-300">
+  <div className="max-w-7xl mx-auto"></div> 
     <h1 className="text-3xl font-bold text-center text-slate-900 dark:text-white mb-10">
       REST Countries
     </h1>
 
-    <div className="flex flex-col md:flex-row gap-4 justify-between items-center">
+   <div className="flex flex-col md:flex-row gap-4 justify-between items-center bg-slate-200 dark:bg-slate-800 p-6 rounded-2xl shadow-md">
       <input
         type="text"
         placeholder="Search for a country..."
