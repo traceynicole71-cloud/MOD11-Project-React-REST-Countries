@@ -1,25 +1,20 @@
 import { Outlet } from "react-router-dom";
-import { useState } from "react";
+import { useContext } from "react";
+import { ThemeContext } from "../../context/themeContext";
 
 const LayoutWrapper = () => {
-  const [darkMode, setDarkMode] = useState(false);
+  const { isDark, toggleTheme } = useContext(ThemeContext);
 
   return (
-    <div
-      className={
-        darkMode
-          ? "dark bg-slate-900 min-h-screen text-white"
-          : "bg-slate-100 min-h-screen text-black"
-      }
-    >
+    <div className="bg-white dark:bg-slate-900 min-h-screen text-black dark:text-white transition-colors duration-300">
       <header className="flex justify-between items-center p-6 shadow-md bg-white dark:bg-slate-800">
         <h1 className="text-xl font-bold">Where in the world?</h1>
 
         <button
-          onClick={() => setDarkMode(!darkMode)}
+          onClick={toggleTheme}
           className="px-4 py-2 rounded-lg bg-slate-200 text-black hover:cursor-pointer"
         >
-          {darkMode ? "Light Mode" : "Dark Mode"}
+          {isDark ? "Light Mode" : "Dark Mode"}
         </button>
       </header>
 
