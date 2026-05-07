@@ -1,5 +1,7 @@
+
 // MAIN LANDING PAGE
 // The search/filter controls and the full responsive grid of country cards
+
 
 import { useCountries } from "../hooks/useCountries";
 import SearchBar from "../components/controls/SearchBar";
@@ -7,6 +9,7 @@ import FilterDropdown from "../components/controls/FilterDropdown";
 import CountryCard from "../components/country/CountryCard";
 
 function Home() {
+
     const {
         filteredCountries,
         loading,
@@ -35,6 +38,7 @@ function Home() {
         <main className="px-6 py-8 bg-gray-100 dark:bg-slate-900 min-h-screen">
             {/* SEARCH + FILTER */}
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
+
                 <SearchBar />
                 <FilterDropdown />
             </div>
