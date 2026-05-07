@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import type { Country } from '../hooks/useCountries';
 import BorderTag from '../components/country/BorderTag';
@@ -12,34 +12,31 @@ const Detail: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  //Fetch specific country data based on code in URL
-  const fetchCountryDetails = useCallback(async () => {
+  useEffect(() => {
     if (!countryCode) return;
 
-    setLoading(true);
-    setError(null);
+    const fetchCountryDetails = async () => {
+      setLoading(true);
+      setError(null);
 
-    try {
-      const response = await fetch(`https://restcountries.com/v3.1/alpha/${countryCode}`);
+      try {
+        const response = await fetch(`https://restcountries.com/v3.1/alpha/${countryCode}`);
 
-      if (!response.ok) {
-        throw new Error('Could not find country data.');
+        if (!response.ok) {
+          throw new Error('Could not find country data.');
+        }
+        //API returns array and we take the first result
+        const data: Country[] = await response.json();
+        setCountry(data[0]);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'An error has occurred');
+      } finally {
+        setLoading(false);
       }
-      //API returns array and we take the first result
-      const data: Country[] = await response.json();
-      setCountry(data[0]);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'An error has occurred');
-    } finally {
-      setLoading(false);
-    }
-  }, [countryCode]);
+    };
 
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     fetchCountryDetails();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [countryCode]);
 
   if (loading) return <div className="loader">Loading Country Details...</div>;
   if (error) return <div className="error">{error}</div>

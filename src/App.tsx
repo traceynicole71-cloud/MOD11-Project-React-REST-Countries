@@ -4,7 +4,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { ThemeProvider } from "./context/themeProvider";
 import { CountriesProvider } from "./hooks/useCountries";
-
 import Home from "./pages/Home";
 import Detail from "./pages/Detail";
 

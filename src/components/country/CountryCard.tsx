@@ -1,41 +1,42 @@
-import type { Country } from "../../hooks/useCountries";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-interface CountryCardProps {
-    country: Country;
-}
+type CountryCardProps = {
+  country: any;
+};
 
-function CountryCard({ country }: CountryCardProps) {
-    const navigate = useNavigate();
+const CountryCard = ({ country }: CountryCardProps) => {
+  return (
+    <Link
+      to={`/country/${country.cca3}`}
+      className="block bg-slate-100 dark:bg-slate-800 rounded-xl shadow-md overflow-hidden hover:scale-105 transition-transform duration-300 cursor-pointer"
+    >
+      <img
+        src={country.flags?.png}
+        alt={country.name?.common}
+        className="h-40 w-full object-cover"
+      />
 
-    return (
-        <div
-            onClick={() => navigate(`/country/${country.cca3}`)}
-            className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-xl transition-shadow duration-200"
-        >
-            <img
-                src={country.flags.png}
-                alt={country.flags.alt ?? `Flag of ${country.name.common}`}
-                className="w-full h-40 object-cover"
-            />
-            <div className="p-5">
-                <h2 className="font-bold text-base text-gray-900 dark:text-white mb-3 truncate">
-                    {country.name.common}
-                </h2>
-                <p className="text-sm text-gray-700 dark:text-gray-300">
-                    <span className="font-semibold">Population:</span>{" "}
-                    {country.population.toLocaleString()}
-                </p>
-                <p className="text-sm text-gray-700 dark:text-gray-300">
-                    <span className="font-semibold">Region:</span> {country.region}
-                </p>
-                <p className="text-sm text-gray-700 dark:text-gray-300">
-                    <span className="font-semibold">Capital:</span>{" "}
-                    {country.capital?.[0] ?? "—"}
-                </p>
-            </div>
-        </div>
-    );
-}
+      <div className="p-5">
+        <h2 className="text-lg font-bold text-slate-900 dark:text-gray-100 mb-4">
+          {country.name?.common}
+        </h2>
+
+        <p className="text-sm text-slate-700 dark:text-gray-300">
+          <span className="font-semibold">Population:</span>{" "}
+          {country.population?.toLocaleString()}
+        </p>
+
+        <p className="text-sm text-slate-700 dark:text-gray-300">
+          <span className="font-semibold">Region:</span> {country.region}
+        </p>
+
+        <p className="text-sm text-slate-700 dark:text-gray-300">
+          <span className="font-semibold">Capital:</span>{" "}
+          {country.capital?.[0] || "N/A"}
+        </p>
+      </div>
+    </Link>
+  );
+};
 
 export default CountryCard;
