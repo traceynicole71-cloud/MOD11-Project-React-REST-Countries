@@ -1,70 +1,83 @@
-// Temporary placeholder — Home page coming soon
-// TODO: render country grid with SearchBar and FilterDropdown
+// MAIN LANDING PAGE
+// The search/filter controls and the full responsive grid of country cards
+
+import { useCountries } from "../hooks/useCountries";
+import SearchBar from "../components/controls/SearchBar";
+import FilterDropdown from "../components/controls/FilterDropdown";
 import CountryCard from "../components/country/CountryCard";
-const countries = [1, 2, 3, 4, 5, 6, 7, 8];
 
-const Home = () => (
-  <div className="min-h-screen bg-slate-100 dark:bg-slate-900 transition-colors duration-300">
-    <header className="bg-white dark:bg-slate-800 shadow-md">
-      <div className="max-w-7xl mx-auto px-8 py-6 flex justify-between items-center">
-        <h1 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white">
-          REST Countries
-        </h1>
+function Home() {
+  const {
+    filteredCountries,
+    loading,
+    error,
+    searchQuery,
+    selectedRegion,
+  } = useCountries();
 
-        <button className="px-4 py-2 rounded-lg bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-white hover:scale-105 transition-transform duration-300">
-          Dark Mode
-        </button>
+  // LOADING STATE
+  if (loading) {
+    return (
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <p className="text-gray-500 dark:text-gray-400 text-lg">
+          Loading Countries...
+        </p>
+      </main>
+    );
+  }
+
+  // ERROR STATE
+  if (error) {
+    return (
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <p className="text-red-500 dark:text-red-400 text-lg">
+          Error: {error}
+        </p>
+      </main>
+    );
+  }
+
+  // NO RESULTS STATE
+  const noResults =
+    filteredCountries.length === 0 &&
+    (searchQuery || selectedRegion);
+
+  return (
+    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="flex flex-col sm:flex-row sm:justify-between gap-4 mb-8">
+        <SearchBar />
+        <FilterDropdown />
       </div>
-    </header>
 
-    <main className="max-w-7xl mx-auto p-8">
-      <div className="flex flex-col md:flex-row gap-4 justify-between items-center bg-slate-200 dark:bg-slate-800 p-6 rounded-2xl shadow-md mb-10">
-        <input
-          type="text"
-          placeholder="Search for a country..."
-          className="w-full md:w-96 p-3 rounded-lg shadow bg-white dark:bg-slate-700 text-slate-900 dark:text-white"
-        />
-
-        <select className="w-full md:w-60 p-3 rounded-lg shadow bg-white dark:bg-slate-700 text-slate-900 dark:text-white">
-          <option>Filter by Region</option>
-          <option>Africa</option>
-          <option>Americas</option>
-          <option>Asia</option>
-          <option>Europe</option>
-          <option>Oceania</option>
-        </select>
-      </div>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        {countries.map((country) => (
-          <div
-            key={country}
-            className="bg-white dark:bg-slate-800 rounded-xl shadow-md overflow-hidden hover:scale-105 transition-transform duration-300"
-          >
-            <div className="h-40 bg-slate-300 dark:bg-slate-700"></div>
-
-            <div className="p-5">
-              <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4">
-                Country Name
-              </h2>
-
-              <p className="text-sm text-slate-700 dark:text-slate-300">
-                <span className="font-semibold">Population:</span> 000,000
-              </p>
-
-              <p className="text-sm text-slate-700 dark:text-slate-300">
-                <span className="font-semibold">Region:</span> Region
-              </p>
-
-              <p className="text-sm text-slate-700 dark:text-slate-300">
-                <span className="font-semibold">Capital:</span> Capital City
-              </p>
-            </div>
+      {noResults ? (
+        <p className="text-center text-gray-500 dark:text-gray-400 text-lg py-16">
+          Sorry, no countries found
+          {searchQuery && (
+            <span> for &quot;{searchQuery}&quot;</span>
+          )}
+          {selectedRegion && (
+            <span> in {selectedRegion}</span>
+          )}
+        </p>
+      ) : (
+        <>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+           {filteredCountries.map((country: any) => (
+              <CountryCard
+                key={country.cca3}
+                country={country}
+              />
+            ))}
           </div>
-        ))}
-      </div>
+
+          <p className="mt-6 text-sm text-gray-400 dark:text-gray-500 text-center">
+            Showing {filteredCountries.length} countr
+            {filteredCountries.length === 1 ? "y" : "ies"}
+          </p>
+        </>
+      )}
     </main>
-  </div>
-);
+  );
+}
 
 export default Home;
