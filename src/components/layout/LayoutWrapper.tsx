@@ -6,7 +6,7 @@ const LayoutWrapper = () => {
   const { isDark, toggleTheme } = useContext(ThemeContext);
 
   return (
-    <div className="bg-white dark:bg-slate-900 min-h-screen text-black dark:text-white transition-colors duration-300">
+    <div className="bg-gray-100 dark:bg-slate-900 min-h-screen text-black dark:text-white transition-colors duration-300">
       <header className="flex justify-between items-center p-6 shadow-md bg-white dark:bg-slate-800">
         <h1 className="text-xl font-bold">Where in the world?</h1>
 
