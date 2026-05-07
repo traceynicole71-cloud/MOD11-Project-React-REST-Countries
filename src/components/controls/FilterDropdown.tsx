@@ -21,7 +21,7 @@ function FilterDropdown() {
 
                 aria-label="Filter countries by region"
 
-                className="appearance-none w-full bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 text-sm rounded-lg shadow-md px-4 py-2 pr-8 outline-none cursor-pointer transition-colors duration-150"
+                className="appearance-none w-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 text-sm rounded-lg shadow-md px-4 py-2 pr-8 outline-none cursor-pointer transition-colors duration-150"
             >
                 {/* Default option means no region filter */}
                 <option value={""}>Filter by Region</option>
