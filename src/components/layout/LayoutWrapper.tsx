@@ -12,6 +12,7 @@ const LayoutWrapper = () => {
 
         <button
           onClick={toggleTheme}
+          aria-label="Toggle dark mode"
           className="px-4 py-2 rounded-lg bg-slate-200 text-black hover:cursor-pointer"
         >
           {isDark ? "Light Mode" : "Dark Mode"}
