@@ -1,10 +1,15 @@
+import { Link } from "react-router-dom";
+
 type CountryCardProps = {
   country: any;
 };
 
 const CountryCard = ({ country }: CountryCardProps) => {
   return (
-    <div className="bg-white dark:bg-slate-800 rounded-xl shadow-md overflow-hidden hover:scale-105 transition-transform duration-300">
+    <Link
+      to={`/country/${country.cca3}`}
+      className="block bg-white dark:bg-slate-800 rounded-xl shadow-md overflow-hidden hover:scale-105 transition-transform duration-300 cursor-pointer"
+    >
       <img
         src={country.flags?.png}
         alt={country.name?.common}
@@ -30,7 +35,7 @@ const CountryCard = ({ country }: CountryCardProps) => {
           {country.capital?.[0] || "N/A"}
         </p>
       </div>
-    </div>
+    </Link>
   );
 };
 
