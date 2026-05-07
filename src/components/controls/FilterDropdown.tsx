@@ -2,7 +2,7 @@ import { useCountries } from "../../hooks/useCountries";
 
 // The five regions used by the Rest Countries API
 
-const REGIONS = ['Africa', 'Americas', 'Asia', 'Europe', 'oceania'] as const
+const REGIONS = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'] as const
 
 function FilterDropdown() {
     // Pull current region filter
