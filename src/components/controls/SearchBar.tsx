@@ -26,7 +26,7 @@ function SearchBar() {
 
                 //Flex-1 makes it fill remaining space in the row
                 // outline-none removes the default blue browser ring 
-                className="flex-1 bg-transparent outline-none text-sm text-gray-700 dark:text placeholder-gray-500"
+               className="flex-1 bg-transparent outline-none text-sm text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300"
 
             />
 
