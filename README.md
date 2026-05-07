@@ -33,8 +33,10 @@ Users should be able to:
 
 ### Screenshot
 
-![](./Screenshot.png)
-
+![](./assets/countries-light-screen.png.png)
+![](./assets/countries-dark-screen.png.png)
+![](./assets/countries-light-detailsscreen.png.png)
+![](./assets/countries-dark-detailsscreen.png.png)
 
 ### Links
 
@@ -48,18 +50,12 @@ Users should be able to:
 - Semantic HTML5 markup
 - React
 - TypeScript
-- Flexbox
-- CSS Grid
 
 ### What we learned
 
 As a team, we have enjoyed learning and applying advanced React concepts such as useState, useEffect, custom hooks, advanced custom hooks, the Context API, and React Router. These topics helped us better understand component communication, state management, reusable logic, and navigation within modern React applications. Through hands-on projects and practice, we strengthened our problem-solving and collaboration skills while building more interactive and organized applications. We are excited to continue expanding our knowledge in the upcoming modules and apply these concepts to even more complex projects.
 
 See our code snippets below:
-
-```html
-<label class="sr-only" for="txtSearch">Search:</label>
-```
 
 ``` React: Routing and Context API
 function App() {
@@ -80,45 +76,6 @@ function App() {
 export default App;
 ```
 
-```TypeScript
-export type Country = {
-
-    commonName: string;
-    officialName: string;
-    region: string;
-    population: number;
-    capital: string;
-    pngFlag: string;
-    svgFlag: string;
-    countryCode: string;
-};
-
-export type CountryDetail = {
-    commonName: string;
-    officialName: string;
-    nativeName: string;
-    pngFlag: string;
-    svgFlag: string;
-    population: number;
-    region: string;
-    subregion: string;
-    capital: string;
-    tld: string[];
-    currencies: string[];
-    languages: string[];
-    borders: string[];
-    countryCode: string;
-};
-```
-```js
-// Copilot Suggestion? This is NOT the “batch optimization” fragment pattern
-// countryCardsContainer.appendChild(cardFragment);
-
-// Appending clone to the document fragment (still in memory, not the DOM)
-documentFragment.appendChild(cardFragment);
- countryCardsContainer.appendChild(documentFragment);
-```
-
 ### Continued development
 
 As a team, we are excited to continue learning about backend development, authentication, middleware, and full-stack MERN applications in the upcoming weeks. We look forward to exploring technologies such as Node.js, Express, MongoDB, and deployment practices to better understand how modern web applications are built and maintained. We are eager to strengthen our technical skills, collaborate on new challenges, and apply what we learn through hands-on projects. These upcoming modules will help us continue growing as developers and prepare us for more advanced real-world applications.
@@ -126,8 +83,9 @@ As a team, we are excited to continue learning about backend development, authen
 
 ### Useful resources
 
-- [Example resource 1](https://www.youtube.com/watch?v=ngVvDegsAW8&pp=0gcJCQMLAYcqIYzv) - This video discusses state management in React and Context API useContext .
-- [Example resource 2](https://www.youtube.com/watch?v=XF1_MlZ5l6M) - This video discusses how to use React Hook -- useContext in particular
+- [Example resource 1](https://github.com/facebook/react/issues/14920) - Addresses ESLint rule that verifies the list of dependencies for useEffect hook.
+- [Example resource 2](https://www.youtube.com/watch?v=ngVvDegsAW8&pp=0gcJCQMLAYcqIYzv) - This video discusses state management in React and Context API useContext .
+- [Example resource 3](https://www.youtube.com/watch?v=XF1_MlZ5l6M) - This video discusses how to use React Hook -- useContext in particular
 
 
 ## Collaborators
