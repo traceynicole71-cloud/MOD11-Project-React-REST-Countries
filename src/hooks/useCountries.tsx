@@ -15,7 +15,7 @@ export interface Country {
         official: string;
         nativeName?: Record<string, { common: string }>;
     };
-//3-letter country code for routing and unique keys
+    //3-letter country code for routing and unique keys
     cca3: string;
     flags: {
         png: string;
@@ -26,7 +26,7 @@ export interface Country {
     population: number;
     region: string;
     subregion?: string;
-    capital?: string [];
+    capital?: string[];
     tld?: string[];
     currencies?: Record<string, { name: string; symbol: string }>;
     languages?: Record<string, string>;
@@ -55,6 +55,7 @@ export const CountriesProvider = ({ children }: { children: ReactNode }) => {
     const [selectedRegion, setSelectedRegion] = useState<string>('');
 
     const fetchAllCountries = useCallback(async () => {
+        //  console.log('[useCountries] fetchAllCountries called');
         setLoading(true);
         setError(null);
 
@@ -68,8 +69,10 @@ export const CountriesProvider = ({ children }: { children: ReactNode }) => {
             }
 
             const data = await response.json();
+            // console.log('[useCountries] fetch success — countries:', data.length);
             setCountries(data);
-        } catch {
+        } catch (err) {
+            console.error('[useCountries] fetch failed:', err);
             setError('Failed to fetch countries');
         } finally {
             setLoading(false);
@@ -77,8 +80,10 @@ export const CountriesProvider = ({ children }: { children: ReactNode }) => {
     }, []);
 
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         fetchAllCountries();
-    }, [fetchAllCountries]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     const filteredCountries = useMemo(() => {
         return countries.filter((country) => {
@@ -109,6 +114,7 @@ export const CountriesProvider = ({ children }: { children: ReactNode }) => {
     return <CountriesContext.Provider value={value}>{children}</CountriesContext.Provider>;
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useCountries = () => {
     const context = useContext(CountriesContext);
 
@@ -118,3 +124,5 @@ export const useCountries = () => {
 
     return context;
 };
+
+
