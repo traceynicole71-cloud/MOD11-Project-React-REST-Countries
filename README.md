@@ -33,10 +33,10 @@ Users should be able to:
 
 ### Screenshot
 
-![](./assets/countries-light-screen.png.png)
-![](./assets/countries-dark-screen.png.png)
-![](./assets/countries-light-detailsscreen.png.png)
-![](./assets/countries-dark-detailsscreen.png.png)
+![](./assets/countries-light-screen.png)
+![](./assets/countries-dark-screen.png)
+![](./assets/countries-light-detailsscreen.png)
+![](./assets/countries-dark-detailsscreen.png)
 
 ### Links
 
