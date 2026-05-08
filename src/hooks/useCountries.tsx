@@ -59,10 +59,9 @@ export const CountriesProvider = ({ children }: { children: ReactNode }) => {
         setLoading(true);
         setError(null);
 
-        try {
-            const response = await fetch(
-                "https://restcountries.com/v3.1/all?fields=name,cca3,flags,population,region,subregion,capital,tld,currencies,languages,borders"
-            );
+        try {const response = await fetch(
+  "https://restcountries.com/v3.1/all?fields=name,cca3,flags,population,region,capital"
+);
            
 
             if (!response.ok) {
