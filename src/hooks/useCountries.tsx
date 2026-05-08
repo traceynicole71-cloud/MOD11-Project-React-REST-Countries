@@ -61,9 +61,10 @@ export const CountriesProvider = ({ children }: { children: ReactNode }) => {
 
         try {
             const response = await fetch(
-                "https://restcountries.com/v3.1/all?fields=name,cca3,flags,population,region,subregion,capital,tld,currencies,languages,borders"
+                // Max 10 fields allowed — Detail page fetches its own data per country
+                "https://restcountries.com/v3.1/all?fields=name,cca3,flags,population,region,capital"
             );
-           
+
 
             if (!response.ok) {
                 throw new Error('Failed to fetch countries');
