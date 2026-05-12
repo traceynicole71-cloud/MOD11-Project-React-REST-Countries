@@ -41,7 +41,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [GitHub Repo](https://github.com/traceynicole71-cloud/MOD11-Project-React-REST-Countries)
-- Live Site URL: [Live Demo](https://keokistevenson.github.io/RestCountriesAPIwithColorThemeSwitcher/)
+- Live Site URL: [Live Demo](https://polite-heliotrope-f84eaf.netlify.app/)
 
 ## My process
 
@@ -75,6 +75,8 @@ function App() {
 
 export default App;
 ```
+
+![](./src/assets/code.png)
 
 ### Continued development
 
